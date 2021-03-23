@@ -1,0 +1,95 @@
+@extends('systemadmin.layout.auth')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+
+
+                    <div class="logo">
+                            <!-- <a href="{{url('/dashboard')}}"> -->
+                               <!--  <img src="{{asset('/frontend/image/logo.png')}}" alt="logo" height="80px" width="80px"> -->
+                                <span class="text-center">
+
+                                    <h3>LOGISTICS AREA MILITARY POLICE UNIT<!-- মিলিটারি পুলিশ --></h3>
+                                    <h4>Case Managemnet Software<!-- যানবাহন মামলা নিষ্পত্তি --></h4>
+
+                                </span>
+                                <center><img src="{{asset('/frontend/image/logo.png')}}" class="v-hidden" alt="logo" height="80px" width="80px"></center>
+                            <!--</a>-->
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/systemadmin/login') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">Mobile <!-- or BA  -->Number</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password">
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember"> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary btn-danger">
+                                    Login
+                                </button>
+
+{{--                                <a class="btn btn-link" href="{{ url('/systemadmin/password/reset') }}">
+                                    Forgot Your Password?
+                                </a>--}}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

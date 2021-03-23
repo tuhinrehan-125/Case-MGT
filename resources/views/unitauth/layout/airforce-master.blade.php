@@ -1,0 +1,5 @@
+@include('unitauth.includes.header')
+@include('unitauth.includes.top-header')
+@include('unitauth.includes.sidebar')
+@yield('content')
+@include('unitauth.includes.footer')
